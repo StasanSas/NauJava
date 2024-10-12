@@ -1,9 +1,11 @@
 package ru.stas.NauJava;
 
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
 import ru.stas.NauJava.CustomRepository.ProductRepositoryImpl;
 import ru.stas.NauJava.Dao.ProductRepository;
 import ru.stas.NauJava.Dao.SubstanceRepository;
@@ -33,6 +35,8 @@ class NauJavaApplicationTests {
 	}
 
 	@Test
+	@Transactional
+	@Rollback
 	void testFindUserByName()
 	{
 		String productName = UUID.randomUUID().toString();
@@ -50,6 +54,8 @@ class NauJavaApplicationTests {
 	}
 
 	@Test
+	@Transactional
+	@Rollback
 	void testFindUserByNameBad()
 	{
 		String productName = UUID.randomUUID().toString();
@@ -61,6 +67,8 @@ class NauJavaApplicationTests {
 	}
 
 	@Test
+	@Transactional
+	@Rollback
 	void testFindUserByNameSubstances() {
 		String productName = UUID.randomUUID().toString();
 		String substanceName = UUID.randomUUID().toString();
@@ -83,7 +91,7 @@ class NauJavaApplicationTests {
 		productRepository.save(product);
 		substanceRepository.save(substance);
 
-		Product foundProduct = productRepository.findByNameSubstances(substanceName).getFirst();
+		Product foundProduct = productRepository.findBySubstancesName(substanceName).getFirst();
 
 		Assertions.assertNotNull(foundProduct);
 		Assertions.assertEquals(product.getId(), foundProduct.getId());
@@ -93,6 +101,8 @@ class NauJavaApplicationTests {
 
 
 	@Test
+	@Transactional
+	@Rollback
 	void testFindUserByNameSubstancesBad() {
 		String productName = UUID.randomUUID().toString();
 		String substanceName = UUID.randomUUID().toString();
@@ -115,12 +125,14 @@ class NauJavaApplicationTests {
 		//productRepository.save(product);
 		substanceRepository.save(substance);
 
-		List<Product> foundProduct = productRepository.findByNameSubstances(substanceName);
+		List<Product> foundProduct = productRepository.findBySubstancesName(substanceName);
 
 		Assertions.assertEquals(0, foundProduct.size());
 	}
 
 	@Test
+	@Transactional
+	@Rollback
 	void testFindUserByName2()
 	{
 		String productName = UUID.randomUUID().toString();
@@ -138,6 +150,8 @@ class NauJavaApplicationTests {
 	}
 
 	@Test
+	@Transactional
+	@Rollback
 	void testFindUserByName2Bad()
 	{
 		String productName = UUID.randomUUID().toString();
@@ -149,6 +163,8 @@ class NauJavaApplicationTests {
 	}
 
 	@Test
+	@Transactional
+	@Rollback
 	void testFindUserByNameSubstances2() {
 		String productName = UUID.randomUUID().toString();
 		String substanceName = UUID.randomUUID().toString();
@@ -180,6 +196,8 @@ class NauJavaApplicationTests {
 	}
 
 	@Test
+	@Transactional
+	@Rollback
 	void testFindUserByNameSubstances2Bad() {
 		String productName = UUID.randomUUID().toString();
 		String substanceName = UUID.randomUUID().toString();
@@ -208,6 +226,8 @@ class NauJavaApplicationTests {
 	}
 
 	@Test
+	@Transactional
+	@Rollback
 	void testTransaction() {
 		String productName = UUID.randomUUID().toString();
 		String substanceName = UUID.randomUUID().toString();
@@ -238,6 +258,8 @@ class NauJavaApplicationTests {
 	}
 
 	@Test
+	@Transactional
+	@Rollback
 	void testTransactionBad() {
 		String productName = UUID.randomUUID().toString();
 		String substanceName = UUID.randomUUID().toString();

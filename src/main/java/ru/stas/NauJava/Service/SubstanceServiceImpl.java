@@ -36,7 +36,7 @@ public class SubstanceServiceImpl implements SubstanceService {
         TransactionStatus status = transactionManager.getTransaction(new
                 DefaultTransactionDefinition());
         try {
-            List<Product> products = productRepository.findByNameSubstances(substanceName);
+            List<Product> products = productRepository.findBySubstancesName(substanceName);
 
             productRepository.deleteAll(products);
             substanceRepository.deleteByName(substanceName); // Выполняет удаление
