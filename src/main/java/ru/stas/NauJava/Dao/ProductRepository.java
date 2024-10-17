@@ -8,7 +8,7 @@ import ru.stas.NauJava.Entity.Product;
 import java.util.List;
 
 
-@RepositoryRestResource
+@RepositoryRestResource(path = "product")
 public interface ProductRepository extends CrudRepository<Product, Long> {
 
     List<Product> findByNameAndPriceBetween(String name, Double lowerLimit, Double upperLimit);

@@ -7,6 +7,6 @@ import ru.stas.NauJava.Entity.Targets;
 
 import java.lang.annotation.Target;
 
-@RepositoryRestResource
+@RepositoryRestResource(path = "targets")
 public interface TargetsRepository extends CrudRepository<Targets, Long> {
 }

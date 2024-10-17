@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import ru.stas.NauJava.Entity.Substance;
 import org.springframework.data.repository.CrudRepository;
 
-@RepositoryRestResource
+@RepositoryRestResource(path = "substance")
 public interface SubstanceRepository extends CrudRepository<Substance, Long> {
     @Modifying
     @Transactional
