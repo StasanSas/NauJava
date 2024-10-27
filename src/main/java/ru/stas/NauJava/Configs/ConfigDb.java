@@ -1,4 +1,4 @@
-package ru.stas.NauJava;
+package ru.stas.NauJava.Configs;
 
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Bean;
