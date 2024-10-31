@@ -1,4 +1,4 @@
-package ru.stas.NauJava.Service;
+package ru.stas.NauJava.Service.SubstanceService;
 
 public interface SubstanceService
 {

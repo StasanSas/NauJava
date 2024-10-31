@@ -11,7 +11,7 @@ import ru.stas.NauJava.Dao.ProductRepository;
 import ru.stas.NauJava.Dao.SubstanceRepository;
 import ru.stas.NauJava.Entity.Product;
 import ru.stas.NauJava.Entity.Substance;
-import ru.stas.NauJava.Service.SubstanceServiceImpl;
+import ru.stas.NauJava.Service.SubstanceService.SubstanceServiceImpl;
 
 import java.util.*;
 

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+  <title>Report</title>
+</head>
+<body>
+<h1>Report</h1>
+<p th:text="${status}"></p>
+<p> Количество юзеров </p>
+<p th:text="${amountUsers}"> Количество юзеров </p>
+<p> Время вычисления кол-во юзеров </p>
+<p th:text="${timeCalcUsers}"> </p>
+<p> Время поиска всех продуктов </p>
+<p th:text="${timeFoundProduct}"></p>
+<p> Время составления отчёта </p>
+<p th:text="${timeFormationReport}"></p>
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Calories (100g)</th>
+    <th>Price (100g)</th>
+  </tr>
+  <tr th:each="product : ${products}">
+    <td th:text="${product.id}"></td>
+    <td th:text="${product.name}"></td>
+    <td th:text="${product.calories}"></td>
+    <td th:text="${product.price}"></td>
+  </tr>
+</table>
+</body>
+</html>
