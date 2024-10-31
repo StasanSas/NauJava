@@ -1,9 +1,8 @@
-package ru.stas.NauJava.Service;
+package ru.stas.NauJava.Service.SubstanceService;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
@@ -39,7 +38,7 @@ public class SubstanceServiceImpl implements SubstanceService {
             List<Product> products = productRepository.findBySubstancesName(substanceName);
 
             productRepository.deleteAll(products);
-            substanceRepository.deleteByName(substanceName); // Выполняет удаление
+            substanceRepository.deleteByName(substanceName);
             transactionManager.commit(status);
         } catch (DataAccessException ex) {
             transactionManager.rollback(status);

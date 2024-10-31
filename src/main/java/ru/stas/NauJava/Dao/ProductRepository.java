@@ -16,5 +16,8 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     @Query("SELECT p FROM Product p JOIN p.substances s WHERE s.name = :substanceName")
     List<Product> findBySubstancesName(String substanceName);
 
+    @Query("SELECT p FROM Product p")
+    List<Product> getAll();
+
     void delete(Product product);
 }

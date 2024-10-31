@@ -27,6 +27,9 @@ public class Product {
             inverseJoinColumns = @JoinColumn(name = "substance_id"))
     private Set<Substance> substances = new HashSet<>();
 
+    @ManyToMany(mappedBy = "products")
+    private Set<Report> reports = new HashSet<>();
+
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
